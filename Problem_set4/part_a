@@ -1,6 +1,5 @@
 # Problem Set 4A
 # Name: Taylor Schaefer Jackson
-# Collaborators: NONE
 # Time Spent: 1:30
 
 def get_permutations(sequence):
