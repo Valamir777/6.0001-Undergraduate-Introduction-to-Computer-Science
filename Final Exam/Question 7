@@ -1,0 +1,40 @@
+# Problem 7
+# Numbers in Mandarin follow 3 simple rules.
+
+# There are words for each of the digits from 0 to 10.
+# For numbers 11-19, the number is pronounced as "ten digit",
+# so for example, 16 would be pronounced (using Mandarin) as "ten six".
+# For numbers between 20 and 99, the number is pronounced as “digit ten digit”, so for example,
+# 37 would be pronounced (using Mandarin) as
+# "three ten seven". If the digit is a zero, it is not included.
+# Here is a simple Python dictionary that captures the numbers between 0 and 10.
+trans = {'0': 'ling', '1': 'yi', '2': 'er', '3': 'san', '4': 'si',
+         '5': 'wu', '6': 'liu', '7': 'qi', '8': 'ba', '9': 'jiu', '10': 'shi'}
+
+
+# We want to write a procedure that converts an American number
+# (between 0 and 99), written as a string, into the equivalent Mandarin.
+# Paste your function here
+def convert_to_mandarin(english_number):
+    if int(english_number) <= 10:
+        return f"{trans[english_number]}"
+    elif 11 <= int(english_number) <= 19:
+        return f"{trans['10']} {trans[english_number[1]]}"
+    elif 20 <= int(english_number) <= 99:
+        if english_number[1] == '0':
+            return f"{trans[english_number[0]]} {trans['10']}"
+        else:
+            return f"{trans[english_number[0]]} {trans['10']} {trans[english_number[1]]}"
+    else:
+        return f"{english_number} is an invalid entry"
+
+
+# Test
+# print(f"Actual Return: {convert_to_mandarin('6')} \n"
+#      f"Expected Return: liu")
+# print(f"Actual Return: {convert_to_mandarin('36')} \n"
+#      f"Expected Return: san shi liu")
+# print(f"Actual Return: {convert_to_mandarin('20')} \n"
+#      f"Expected Return: er shi")
+# print(f"Actual Return: {convert_to_mandarin('16')} \n"
+#      f"Expected Return: shi liu")
