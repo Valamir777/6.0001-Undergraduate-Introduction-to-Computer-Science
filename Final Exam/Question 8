@@ -1,0 +1,18 @@
+# Problem 8
+# Write a Python function that creates and returns a list of prime numbers between 2 and N, inclusive, sorted in
+# increasing order. A prime number is a number that is divisible only by 1 and itself.
+# This function takes in an integer and returns a list of integers.
+def prime_list(N):
+    list_prime = []
+    if N >= 2:
+        for x in range(2, N + 1):
+            for y in range(2, x):
+                if x % y == 0:
+                    break
+            else:
+                list_prime.append(x)
+
+            list_prime.sort()
+        return list_prime
+    else:
+        return f"{N} is an invalid entry!"
