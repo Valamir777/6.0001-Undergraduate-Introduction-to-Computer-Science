@@ -1,0 +1,13 @@
+# Problem 3
+# Write a Python function that returns a list of keys in a Dict with the value target.
+# The list of keys you return should be sorted in increasing order. The keys and values in a Dict are both
+# integers. (If a Dict does not contain the value target, you should return an empty list.)
+# This function takes in a dictionary and an integer and returns a list.
+# This is trick problem you should figure out how it is!
+
+def key_list(key_dict, integer_target):
+    sub_key_list = {}
+    for x in key_dict:
+        if key_dict[x] == integer_target:
+            sub_key_list[x] = key_dict[x]
+    return sub_key_list
