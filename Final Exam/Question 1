@@ -1,0 +1,27 @@
+# Problem 1
+# Implement a function called closest_power that meets the specifications below.
+# For example,
+# closest_power(3,12) returns 2
+# closest_power(4,12) returns 2
+# closest_power(4,1) returns 0
+
+def closest_power(base, num):
+    """
+    base: base of the exponential, integer > 1
+    num: number you want to be closest to, integer > 0
+    Find the integer exponent such that base**exponent is closest to num.
+    Note that the base**exponent may be either greater or smaller than num.
+    In case of a tie, return the smaller value.
+    Returns the exponent.
+    """
+    # Your code here
+    pwr = 1
+    if num == 1:
+        return 0
+    while (base ** pwr) < num:
+        pwr += 1
+        if (base ** pwr) > num:
+            if pwr == 2:
+                return 2
+            else:
+                return pwr - 1
